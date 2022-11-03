@@ -1,0 +1,24 @@
+    int trap(vector<int>& height) {
+        int sum=0;
+        int size=height.size();
+        int total=0;
+        int left[size];
+        int right[size];
+        int max=INT_MIN;
+        for(int i=0;i<size;i++){
+            if(height[i]>max) max=height[i];
+            left[i]=max;
+        }
+        
+        max=INT_MIN;
+        for(int i=size-1;i>=0;i--){
+            if(height[i]>max) max=height[i];
+            right[i]=max;
+        }
+        for(int i=0;i<size;i++){
+            sum=min(left[i],right[i])-height[i];
+            total=total+sum;
+        }
+        
+        return total;
+   
