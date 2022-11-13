@@ -1,0 +1,26 @@
+  string reverseWords(string s) {
+        int size=s.length();
+        stack<string>temp;
+        for(int i=0;i<size;i++){
+            while(s[i]==' ') i++;
+            string word="";  
+            while(s[i]!=' ' && i<size){
+                if(s[i]==' ') break;
+                else word+=s[i];
+                i++;
+            }     
+            temp.push(word);
+        }
+            string answer="";
+            while(!temp.empty()){
+                if(answer==""){
+                    answer=temp.top();
+                    temp.pop();
+                }
+                else{
+                    answer=answer+" "+temp.top();
+                    temp.pop();
+                }
+            }
+        return answer;    
+    }
